@@ -1,0 +1,54 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore backend/WeatherApp.API/WeatherApp.API.csproj
+      
+    - name: Build
+      run: dotnet build backend/WeatherApp.API/WeatherApp.API.csproj --no-restore
+      
+    - name: Test
+      run: dotnet test backend/WeatherApp.API.Tests/WeatherApp.API.Tests.csproj --no-build --verbosity normal
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: backend/WeatherApp.API.Tests/TestResults/
+        
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Publish
+      run: dotnet publish backend/WeatherApp.API/WeatherApp.API.csproj -c Release -o ./publish
+      
+    # Add deployment steps here when you have a hosting environment
+    # For example, Azure App Service, AWS, etc.

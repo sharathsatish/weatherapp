@@ -1,0 +1,331 @@
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Program.cs
+FN:5,System.Void Program::<Main>$(System.String[])
+FNDA:0,System.Void Program::<Main>$(System.String[])
+DA:6,0
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:32,0
+DA:35,0
+DA:38,0
+DA:39,0
+DA:42,0
+DA:44,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:54,0
+DA:57,0
+DA:60,0
+DA:62,0
+DA:64,0
+DA:66,0
+BRDA:47,201,0,0
+BRDA:47,201,1,0
+FN:67,System.DateOnly WeatherForecast::get_Date()
+FNDA:0,System.DateOnly WeatherForecast::get_Date()
+DA:68,0
+FN:69,System.Int32 WeatherForecast::get_TemperatureF()
+FNDA:0,System.Int32 WeatherForecast::get_TemperatureF()
+DA:70,0
+LF:40
+LH:0
+BRF:2
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Services\WeatherService.cs
+FN:14,System.Void WeatherApp.API.Services.WeatherService::.ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions`1<WeatherApp.API.Models.WeatherApiSettings>,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Services.WeatherService>)
+FNDA:6,System.Void WeatherApp.API.Services.WeatherService::.ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions`1<WeatherApp.API.Models.WeatherApiSettings>,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Services.WeatherService>)
+DA:15,6
+DA:16,6
+DA:17,6
+DA:18,6
+DA:19,6
+DA:20,6
+DA:21,6
+DA:22,6
+DA:23,6
+DA:24,6
+DA:25,6
+DA:26,6
+FN:28,System.Void WeatherApp.API.Services.WeatherService/<GetWeatherAsync>d__5::MoveNext()
+FNDA:4,System.Void WeatherApp.API.Services.WeatherService/<GetWeatherAsync>d__5::MoveNext()
+DA:29,4
+DA:30,4
+DA:32,4
+DA:33,0
+DA:34,0
+DA:35,0
+DA:39,4
+DA:40,4
+DA:41,4
+DA:43,3
+DA:44,3
+DA:45,0
+DA:46,0
+DA:49,3
+DA:50,3
+DA:52,3
+DA:53,3
+DA:55,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:60,3
+BRDA:32,73,0,0
+BRDA:32,73,1,4
+BRDA:44,542,0,0
+BRDA:44,542,1,3
+FN:62,System.Void WeatherApp.API.Services.WeatherService/<GetWeatherForMultipleCitiesAsync>d__6::MoveNext()
+FNDA:2,System.Void WeatherApp.API.Services.WeatherService/<GetWeatherForMultipleCitiesAsync>d__6::MoveNext()
+DA:63,2
+DA:64,2
+DA:65,1
+DA:66,1
+DA:69,1
+DA:70,1
+DA:71,1
+DA:72,1
+BRDA:64,49,0,1
+BRDA:64,49,1,1
+FN:74,System.Void WeatherApp.API.Services.WeatherService/<IsCityValidAsync>d__7::MoveNext()
+FNDA:2,System.Void WeatherApp.API.Services.WeatherService/<IsCityValidAsync>d__7::MoveNext()
+DA:75,2
+DA:77,2
+DA:78,2
+DA:79,2
+DA:81,0
+DA:82,0
+DA:83,0
+DA:85,2
+LF:50
+LH:42
+BRF:6
+BRH:4
+FNF:4
+FNH:4
+end_of_record
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Models\WeatherApiSettings.cs
+FN:4,System.String WeatherApp.API.Models.WeatherApiSettings::get_ApiKey()
+FNDA:18,System.String WeatherApp.API.Models.WeatherApiSettings::get_ApiKey()
+DA:5,18
+FN:5,System.String WeatherApp.API.Models.WeatherApiSettings::get_BaseUrl()
+FNDA:18,System.String WeatherApp.API.Models.WeatherApiSettings::get_BaseUrl()
+DA:6,18
+FN:6,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_CacheDurationMinutes()
+FNDA:9,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_CacheDurationMinutes()
+DA:7,9
+FN:7,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_RateLimitRequestsPerMinute()
+FNDA:6,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_RateLimitRequestsPerMinute()
+DA:8,6
+FN:8,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_MaxCitiesAllowed()
+FNDA:9,System.Int32 WeatherApp.API.Models.WeatherApiSettings::get_MaxCitiesAllowed()
+DA:9,9
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:5
+FNH:5
+end_of_record
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Models\WeatherModels.cs
+FN:7,System.String WeatherApp.API.Models.WeatherResponse::get_City()
+FNDA:34,System.String WeatherApp.API.Models.WeatherResponse::get_City()
+DA:8,34
+FN:10,WeatherApp.API.Models.CurrentWeather WeatherApp.API.Models.WeatherResponse::get_Current()
+FNDA:25,WeatherApp.API.Models.CurrentWeather WeatherApp.API.Models.WeatherResponse::get_Current()
+DA:11,25
+FN:13,System.Collections.Generic.List`1<WeatherApp.API.Models.ForecastDay> WeatherApp.API.Models.WeatherResponse::get_Forecast()
+FNDA:17,System.Collections.Generic.List`1<WeatherApp.API.Models.ForecastDay> WeatherApp.API.Models.WeatherResponse::get_Forecast()
+DA:14,17
+FN:19,System.Double WeatherApp.API.Models.CurrentWeather::get_Temperature()
+FNDA:15,System.Double WeatherApp.API.Models.CurrentWeather::get_Temperature()
+DA:20,15
+FN:22,System.Double WeatherApp.API.Models.CurrentWeather::get_FeelsLike()
+FNDA:8,System.Double WeatherApp.API.Models.CurrentWeather::get_FeelsLike()
+DA:23,8
+FN:25,System.Int32 WeatherApp.API.Models.CurrentWeather::get_Humidity()
+FNDA:8,System.Int32 WeatherApp.API.Models.CurrentWeather::get_Humidity()
+DA:26,8
+FN:28,System.Double WeatherApp.API.Models.CurrentWeather::get_WindSpeed()
+FNDA:8,System.Double WeatherApp.API.Models.CurrentWeather::get_WindSpeed()
+DA:29,8
+FN:31,System.String WeatherApp.API.Models.CurrentWeather::get_Description()
+FNDA:32,System.String WeatherApp.API.Models.CurrentWeather::get_Description()
+DA:32,32
+FN:34,System.String WeatherApp.API.Models.CurrentWeather::get_Icon()
+FNDA:27,System.String WeatherApp.API.Models.CurrentWeather::get_Icon()
+DA:35,27
+FN:40,System.DateTime WeatherApp.API.Models.ForecastDay::get_Date()
+FNDA:0,System.DateTime WeatherApp.API.Models.ForecastDay::get_Date()
+DA:41,0
+FN:43,System.Double WeatherApp.API.Models.ForecastDay::get_Temperature()
+FNDA:0,System.Double WeatherApp.API.Models.ForecastDay::get_Temperature()
+DA:44,0
+FN:46,System.Double WeatherApp.API.Models.ForecastDay::get_FeelsLike()
+FNDA:0,System.Double WeatherApp.API.Models.ForecastDay::get_FeelsLike()
+DA:47,0
+FN:49,System.Int32 WeatherApp.API.Models.ForecastDay::get_Humidity()
+FNDA:0,System.Int32 WeatherApp.API.Models.ForecastDay::get_Humidity()
+DA:50,0
+FN:52,System.Double WeatherApp.API.Models.ForecastDay::get_WindSpeed()
+FNDA:0,System.Double WeatherApp.API.Models.ForecastDay::get_WindSpeed()
+DA:53,0
+FN:55,System.String WeatherApp.API.Models.ForecastDay::get_Description()
+FNDA:0,System.String WeatherApp.API.Models.ForecastDay::get_Description()
+DA:56,0
+FN:58,System.String WeatherApp.API.Models.ForecastDay::get_Icon()
+FNDA:0,System.String WeatherApp.API.Models.ForecastDay::get_Icon()
+DA:59,0
+FN:64,System.String WeatherApp.API.Models.WeatherError::get_Message()
+FNDA:6,System.String WeatherApp.API.Models.WeatherError::get_Message()
+DA:65,6
+FN:67,System.String WeatherApp.API.Models.WeatherError::get_Code()
+FNDA:9,System.String WeatherApp.API.Models.WeatherError::get_Code()
+DA:68,9
+LF:18
+LH:11
+BRF:0
+BRH:0
+FNF:18
+FNH:11
+end_of_record
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Middleware\RateLimitingMiddleware.cs
+FN:13,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware::.ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions`1<WeatherApp.API.Models.WeatherApiSettings>,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Middleware.RateLimitingMiddleware>)
+FNDA:0,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware::.ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions`1<WeatherApp.API.Models.WeatherApiSettings>,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Middleware.RateLimitingMiddleware>)
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+FN:11,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware::.cctor()
+FNDA:0,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware::.cctor()
+DA:12,0
+FN:26,System.Collections.Generic.Queue`1<System.DateTime> WeatherApp.API.Middleware.RateLimitingMiddleware/<>c::<InvokeAsync>b__5_0(System.String)
+FNDA:0,System.Collections.Generic.Queue`1<System.DateTime> WeatherApp.API.Middleware.RateLimitingMiddleware/<>c::<InvokeAsync>b__5_0(System.String)
+DA:27,0
+FN:24,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware/<InvokeAsync>d__5::MoveNext()
+FNDA:0,System.Void WeatherApp.API.Middleware.RateLimitingMiddleware/<InvokeAsync>d__5::MoveNext()
+DA:25,0
+DA:26,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:48,0
+DA:49,0
+DA:50,0
+BRDA:26,47,0,0
+BRDA:26,47,1,0
+BRDA:26,59,0,0
+BRDA:26,59,1,0
+BRDA:31,210,1,0
+BRDA:31,181,0,0
+BRDA:31,181,1,0
+BRDA:31,210,0,0
+BRDA:36,246,0,0
+BRDA:36,246,1,0
+LF:31
+LH:0
+BRF:10
+BRH:0
+FNF:4
+FNH:0
+end_of_record
+SF:C:\Users\shsatish\Documents\Code\WeatherApp\backend\WeatherApp.API\Controllers\WeatherController.cs
+FN:13,System.Void WeatherApp.API.Controllers.WeatherController::.ctor(WeatherApp.API.Services.IWeatherService,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Controllers.WeatherController>)
+FNDA:5,System.Void WeatherApp.API.Controllers.WeatherController::.ctor(WeatherApp.API.Services.IWeatherService,Microsoft.Extensions.Logging.ILogger`1<WeatherApp.API.Controllers.WeatherController>)
+DA:14,5
+DA:15,5
+DA:16,5
+DA:17,5
+DA:18,5
+FN:24,System.Void WeatherApp.API.Controllers.WeatherController/<GetWeather>d__3::MoveNext()
+FNDA:3,System.Void WeatherApp.API.Controllers.WeatherController/<GetWeather>d__3::MoveNext()
+DA:25,3
+DA:27,3
+DA:28,3
+DA:29,1
+DA:30,1
+DA:31,1
+DA:32,1
+DA:33,1
+DA:34,1
+DA:37,2
+DA:38,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:45,1
+DA:46,1
+DA:47,1
+DA:49,3
+BRDA:28,165,0,1
+BRDA:28,165,1,2
+FN:55,System.Void WeatherApp.API.Controllers.WeatherController/<GetWeatherForMultipleCities>d__4::MoveNext()
+FNDA:2,System.Void WeatherApp.API.Controllers.WeatherController/<GetWeatherForMultipleCities>d__4::MoveNext()
+DA:56,2
+DA:58,2
+DA:59,2
+DA:60,1
+DA:62,1
+DA:63,1
+DA:64,1
+DA:65,1
+DA:66,1
+DA:67,1
+DA:68,1
+DA:70,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:79,2
+LF:45
+LH:37
+BRF:2
+BRH:2
+FNF:3
+FNH:3
+end_of_record

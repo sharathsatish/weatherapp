@@ -151,6 +151,9 @@ public class WeatherServiceTests
 
     private void SetupHttpResponse(WeatherResponse response)
     {
+        ArgumentNullException.ThrowIfNull(response, nameof(response));
+        ArgumentNullException.ThrowIfNull(response.City, nameof(response.City));
+        
         var jsonContent = System.Text.Json.JsonSerializer.Serialize(response);
         var content = new StringContent(jsonContent);
         content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
@@ -159,7 +162,9 @@ public class WeatherServiceTests
             .Protected()
             .Setup<Task<HttpResponseMessage>>(
                 "SendAsync",
-                ItExpr.Is<HttpRequestMessage>(req => req.RequestUri.ToString().Contains(response.City)),
+                ItExpr.Is<HttpRequestMessage>(req => 
+                    req.RequestUri != null && 
+                    req.RequestUri.ToString().Contains(response.City)),
                 ItExpr.IsAny<CancellationToken>()
             )
             .ReturnsAsync(new HttpResponseMessage

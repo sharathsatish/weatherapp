@@ -1,0 +1,59 @@
+name: Develop Branch CI
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore backend/WeatherApp.API/WeatherApp.API.csproj
+      
+    - name: Build
+      run: dotnet build backend/WeatherApp.API/WeatherApp.API.csproj --no-restore
+      
+    - name: Test
+      run: dotnet test backend/WeatherApp.API.Tests/WeatherApp.API.Tests.csproj --no-build --verbosity normal
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: backend/WeatherApp.API.Tests/TestResults/
+        
+  code-coverage:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Install coverlet
+      run: dotnet tool install --global coverlet.console
+      
+    - name: Generate coverage report
+      run: dotnet test backend/WeatherApp.API.Tests/WeatherApp.API.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
+      
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: lcov.info

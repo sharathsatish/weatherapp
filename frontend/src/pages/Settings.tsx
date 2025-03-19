@@ -1,56 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Card from '../components/common/Card';
-import Input from '../components/common/Input';
-import Button from '../components/common/Button';
 import { useSettings } from '../hooks/useSettings';
 
 const settingsSchema = z.object({
-  temperatureUnit: z.enum(['celsius', 'fahrenheit']),
-  refreshInterval: z.number().min(1).max(60),
-  maxFavorites: z.number().min(1).max(10),
+  temperatureUnit: z.enum(['C', 'F']),
+  theme: z.enum(['light', 'dark']),
 });
 
 type SettingsFormData = z.infer<typeof settingsSchema>;
 
-export const Settings = () => {
+const Settings: React.FC = () => {
   const { settings, updateSettings } = useSettings();
 
-  const handleTemperatureUnitChange = (unit: 'C' | 'F') => {
-    updateSettings({ temperatureUnit: unit });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SettingsFormData>({
+    resolver: zodResolver(settingsSchema),
+    defaultValues: settings,
+  });
+
+  const onSubmit = async (data: SettingsFormData) => {
+    await updateSettings(data);
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-sky-900 mb-8">Settings</h1>
-      
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-sky-900 mb-4">Temperature Unit</h2>
-        <div className="flex space-x-4">
-          <Button
-            onClick={() => handleTemperatureUnitChange('C')}
-            className={`flex-1 ${
-              settings.temperatureUnit === 'C'
-                ? 'bg-sky-600 hover:bg-sky-700'
-                : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
-            }`}
+    <Card>
+      <h1 className="text-2xl font-bold mb-6">Settings</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Temperature Unit
+          </label>
+          <select
+            {...register('temperatureUnit')}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky-blue-primary"
           >
-            Celsius (°C)
-          </Button>
-          <Button
-            onClick={() => handleTemperatureUnitChange('F')}
-            className={`flex-1 ${
-              settings.temperatureUnit === 'F'
-                ? 'bg-sky-600 hover:bg-sky-700'
-                : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
-            }`}
-          >
-            Fahrenheit (°F)
-          </Button>
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+          </select>
+          {errors.temperatureUnit && (
+            <p className="mt-1 text-sm text-red-500">{errors.temperatureUnit.message}</p>
+          )}
         </div>
-      </div>
-    </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Theme
+          </label>
+          <select
+            {...register('theme')}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky-blue-primary"
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          {errors.theme && (
+            <p className="mt-1 text-sm text-red-500">{errors.theme.message}</p>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-sky-blue-primary text-white py-2 px-4 rounded-lg hover:bg-sky-blue-secondary transition-colors duration-300"
+        >
+          {isSubmitting ? 'Saving...' : 'Save Settings'}
+        </button>
+      </form>
+    </Card>
   );
-}; 
+};
+
+export default Settings; 

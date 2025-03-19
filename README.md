@@ -29,10 +29,7 @@ A full-stack weather monitoring application with a C# backend API and React fron
 WeatherApp/
 ├── backend/         # C# Web API project
 │   ├── WeatherApp.API/           # Main API project
-│   ├── WeatherApp.Core/          # Core business logic
-│   ├── WeatherApp.Infrastructure/# External services
 │   ├── WeatherApp.API.Tests/     # API tests
-│   └── WeatherApp.Core.Tests/    # Core logic tests
 └── frontend/        # React frontend application
     ├── src/
     │   ├── assets/           # Static assets
